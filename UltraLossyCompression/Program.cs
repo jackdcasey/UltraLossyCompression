@@ -8,8 +8,8 @@ namespace UltraLossyCompression
     {
         static void Main(string[] args)
         {
-            args = new[] { "/Users/jack/Projects/UltraLossyCompression/UltraLossyCompression/TestImages/DogPhoto.png.ultralossy" };
-
+            args = new[] { "/Users/jack/Projects/UltraLossyCompression/UltraLossyCompression/TestImages/EiffelTower.jpg.ultralossy" };
+            // Verify we have 1 argument specified, and that it's an existing file
             if (args.Length != 1 && !File.Exists(args[0]))
             {
                 Console.WriteLine("Please specify a valid file");
@@ -18,6 +18,7 @@ namespace UltraLossyCompression
 
             string inputPath = args[0];
 
+            // Verify the extension of the file
             if (!new[] { ".jpg", ".png", ".ultralossy" }.Contains(Path.GetExtension(inputPath).ToLower()))
             {
                 Console.WriteLine("Image not a valid type, please select a .jpg or .png");
@@ -26,6 +27,7 @@ namespace UltraLossyCompression
 
             Console.WriteLine($"Converting {inputPath}");
 
+            // If compressed, convert to full size image 
             if (Path.GetExtension(inputPath).Equals(".ultralossy"))
             {
                 string imageDescription = File.ReadAllText(inputPath);
@@ -38,6 +40,8 @@ namespace UltraLossyCompression
 
                 File.Delete(inputPath);
             }
+
+            // If uncompressed, convert to .ultralossy compressed format
             else
             {
                 string imageDescription = AzureFunctions.GetDescriptionFromImage(inputPath).Result;

@@ -15,8 +15,8 @@ namespace UltraLossyCompression
 {
     public static class AzureFunctions
     {
-        const string VisionSubscriptionKey = "SUBSCRIPTIONKEY";
-        const string SearchSubscriptionKey = "SUBSCRIPTIONKEY";
+        const string VisionSubscriptionKey = "f587f069585b4fee982c8022d7622fd8";
+        const string SearchSubscriptionKey = "f9b51224746a4f2497c8d37695bf335e";
 
         // Given an image file, converts into a string description of that image
         public static async Task<string> GetDescriptionFromImage(string filePath)
