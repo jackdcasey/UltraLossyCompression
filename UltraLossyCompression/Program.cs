@@ -8,7 +8,6 @@ namespace UltraLossyCompression
     {
         static void Main(string[] args)
         {
-            args = new[] { "/Users/jack/Projects/UltraLossyCompression/UltraLossyCompression/TestImages/EiffelTower.jpg.ultralossy" };
             // Verify we have 1 argument specified, and that it's an existing file
             if (args.Length != 1 && !File.Exists(args[0]))
             {
